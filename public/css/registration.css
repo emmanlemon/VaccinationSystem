@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+.title{
+    color: white;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    margin: 15px;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow:1px 1px 1px green,2px 2px 2px black ;
+}
+form{
+    width: 70%;
+    height: 60% ;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+}
+.container label{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+}
+.container input,select{
+    width: 100%;
+    padding: 10px;
+    font-size: .90em;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: .1px .1px .1px black;
+}
+.btn {
+    width: 100%;
+    border-radius: 5px;
+    margin:5px 0;
+    background-color: #f9f2b2;
+    opacity: 0.7;
+    border: 1px outset gray;
+    color: rgb(37, 37, 37);
+    padding: 5px 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+.btn:hover {
+    letter-spacing: 1px;
+    opacity: 1;
+    background-color: #c7e7ac; 
+    color: rgb(255, 255, 255);
+}
+.error{
+    margin-bottom: 5px;
+    
+}
+.error span{
+    color:red;
+    font-size: 1em;
+}
