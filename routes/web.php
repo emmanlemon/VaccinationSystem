@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,10 @@ use App\Http\Controllers\RegistrationController;
 |
 */
 
-Route::redirect('/', '/registration');
+Route::redirect('/', '/auth');
 
-Route::resource('/registration', RegistrationController::class);
+Route::resource('/auth', Auth::class);
+Route::resource('/registration', RegistrationController::class)->middleware('isLoggedIn');;
+Route::resource('/admin', AdminController::class)->middleware('isLoggedIn');
+
+Route::get('/logout', [Auth::class , 'logout'])->name('logout');

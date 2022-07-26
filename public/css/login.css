@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-image: url("https://shrm-res.cloudinary.com/image/upload/c_crop,h_704,w_1253,x_0,y_29/w_auto:100,w_1200,q_35,f_auto/v1/Legal%20and%20Compliance/covid-19_vaccine_hvluy6.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.container label{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+}
+.container input,select{
+    width: 100%;
+    padding: 10px;
+    font-size: .90em;
+    border-radius: 5px;
+    box-shadow: .1px .1px .1px black;
+}
+form{
+    box-shadow: 1px 1px 1px rgb(0, 17, 128),
+    2px 2px 2px green;
+    width:60%;
+    height: 100%;
+    background-color:rgba(255,255,255,0.45);
+    padding: 20px;
+}
+h1{
+    padding: 40px 0;
+    text-transform:uppercase;
+    letter-spacing: 2px;    
+    text-align: center;
+    font-size: 3.2em;
+    margin-bottom: 20px;
+}
+.container a{
+    color:black;
+    -webkit-text-stroke: .5px black;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgb(0, 84, 16);
+    transition: .5s;
+}  
+.container h1::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, blue, green);
+    display: block;
+    margin: auto;
+    transition: 1s;
+}
+.container h1:hover::after{
+    width: 100%;
+    transform: rotateX(90deg);
+}
+.container h1:hover{
+    font-size: 3.3em;
+    text-shadow: 1px 1px 1px green , 2px 2px 2px blue;
+    letter-spacing: 3px;
+}
+
+.btn {
+    margin-top: 20px;
+    gap: 1em;
+    border-radius: 5px;
+    background-color: navy;
+    opacity: 0.7;
+    border: 1px outset gray;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-right: 5px;
+    text-transform: uppercase;
+  }
+  
+.btn:hover {
+    letter-spacing: 1px;
+    opacity: 1;
+    background-color: blue;
+    color: rgb(255, 255, 255);
+}
+.footer-copyright{
+    width: 100%;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    border-top: 3px outset;
+    border-image: linear-gradient(to right, rgb(0, 38, 255), rgb(0, 115, 0)) 1;
+	border-top: 1px outset;
+	background-color: #eee;
+	font-size: 1.25em;
+	text-shadow: 1px 1px 1px white;
+	padding: 1%;
+}
+.error{
+    padding-left: 5px;
+    background-color:red;
+    border-radius: 5px;
+    
+}
+.error p{
+    text-transform: capitalize;
+    text-align: center;
+    padding: 5px;
+    color:white;
+    font-size: 1.2em;
+    
+}
+.success{
+    background-color: greenyellow;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    border: 1px outset green;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+.alert {
+    background-color: rgba(255, 0, 0, 0.438);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    border: 1px outset red;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 1.2em;
+}

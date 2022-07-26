@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
 use App\Models\Registration;
-use App\Http\Requests\RegistrationRequests;
+use Session;
 
-class RegistrationController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,20 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('Form.Registration');
+        $data = array();
+        if(Session::has('loginId'))
+        {
+            $id = Admin::where('id', '=' ,Session::get('loginId'))->first();
+            $data = Registration::all();
+
+            return view('Admin.show_data',[
+                'id' => $id,
+                'data' => $data
+            ]);
+        }
+        else{
+            return redirect('/auth')->with('fail' ,'This is For Admin Section');
+        }
     }
 
     /**
@@ -34,19 +48,9 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegistrationRequests $request)
+    public function store(Request $request)
     {
-        $Registration = Registration::create([
-            'studentNumber' => $request->studentNumber,
-            'studentType' => $request->studentType,
-            'courseId' => $request->courseId,
-            'sy' => $request->sy,
-            'section' => $request->section,
-            'tuitionFee' => $request->tuitionFee,
-            'advisingStatus' => $request->advisingStatus,
-            'registrationStatus' => $request->registrationStatus,
-        ]);
-        return redirect('/');
+        //
     }
 
     /**
@@ -57,7 +61,7 @@ class RegistrationController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

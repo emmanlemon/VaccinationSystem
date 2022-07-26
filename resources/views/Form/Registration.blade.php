@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url ('css/registration.css') }}">
-    <title>Document</title>
+    <title>Registration Form</title>
 </head>
 <body>
 <!-- studnum,studtype,courseid,yr,sec,term,sy,datereg,totfee,advising,regstatus -->
-<img src="images/bcc_logo.png" alt="" style="margin: 10px auto 20px;
+<div class="header">
+    <img src="images/bcc_logo.png" alt="" style="margin:auto;
     display: block;">
+</div>
 <div class="container">
     <form action="/registration" method="POST">
         @csrf
@@ -26,14 +28,14 @@
         </div>
         <div class="form-control">
             <label for="">Student Type:</label>
-            <select>
-                <option value="1st">Old Student</option>
-                <option value="2nd">Transferee</option>
+            <select name="studentType">
+                <option value="Old Student">Old Student</option>
+                <option value="Transferee">Transferee</option>
             </select>
         </div>
         <div class="form-control">
             <label for="">Course Id:</label>
-            <select>
+            <select name="courseId">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -42,7 +44,7 @@
         </div>
         <div class="form-control">
             <label for="">Year:</label>
-            <select>
+            <select name="sy">
                 <option value="1st">1st Year</option>
                 <option value="2nd">2nd Year</option>
                 <option value="3rd">3rd Year</option>
@@ -51,7 +53,7 @@
         </div>
         <div class="form-control">
             <label for="">Section:</label>
-            <select>
+            <select name="section">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -89,6 +91,8 @@
         <button class="btn">Register </button>
         <button type="reset" class="btn"> Reset </button>
     </form>
+</div>
+<div class="footer-copyright text-left py-3">© COPYRIGHT 2022. ALL RIGHTS RESERVED.
 </div>
 </body>
 </html>

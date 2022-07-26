@@ -25,9 +25,12 @@ class RegistrationRequests extends FormRequest
     {
         return [
             'studentNumber' => 'required',
-            'tuitionFee' => 'required',
+            'tuitionFee' => 'required|numeric',
             'advisingStatus' => 'required',
             'registrationStatus' => 'required',
+            'studentType' => 'required',
+            'sy' => 'required',
+            'section' => 'required',
         ];
     }
 }
