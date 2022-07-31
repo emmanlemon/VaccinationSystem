@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Plus+Jakarta+Sans:wght@200&family=Roboto:ital,wght@0,100;0,300;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav {
+    background-image: linear-gradient(to right, blue ,green);    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 1%;
+    border-bottom: 3px outset;
+    border-image: linear-gradient(to right, rgba(15, 15, 227, 0.177) , rgba(207, 207, 207, 0.473)) 1;
+}
+nav p{
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.682);
+    text-shadow: 2px 2px 3px rgb(8, 8, 8);
+    font-size: 1.5em;
+    font-weight : bold;
+}
+.nav-links{
+    flex: 1;
+    text-align: center;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 9px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: white;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+.nav-links ul li a::after{
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: rgb(181, 227, 236);
+    display: block;
+    margin: auto;
+    transition: .5s;
+}
+.nav-links ul li a:hover::after{
+    width: 100%;
+}

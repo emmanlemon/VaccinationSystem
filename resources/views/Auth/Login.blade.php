@@ -39,7 +39,7 @@
             </div>
             <button class="btn">Log In </button>
             <button type="reset" class="btn"> Reset </button> 
-        <a href="">Create An Account?</a>
+        <a href="/registration">Create An Account?</a>
     </form>
     </div>
     <div class="footer-copyright text-left py-3">© COPYRIGHT 2022. ALL RIGHTS RESERVED.

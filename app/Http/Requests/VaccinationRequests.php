@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegistrationRequests extends FormRequest
+class VaccinationRequests extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,18 @@ class RegistrationRequests extends FormRequest
     public function rules()
     {
         return [
-            'studentNumber' => 'required|unique:registrations',
-            'tuitionFee' => 'required|numeric',
-            'advisingStatus' => 'required',
-            'registrationStatus' => 'required',
-            'studentType' => 'required',
-            'sy' => 'required',
-            'section' => 'required',
+            'vaccinated' => 'required',
+            'brand' => 'required',
+            'firstDose' => 'required',
+            'provider1' => 'required',
+            'secondDose' => 'required',
+            'provider2' => 'required',
+            'booster' => 'required',
+            'provider3' => 'required',
+            'boosterDate' => 'required',
+            'reason' => 'required',
         ];
     }
+   
+    
 }

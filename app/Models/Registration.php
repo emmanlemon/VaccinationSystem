@@ -15,4 +15,14 @@ class Registration extends Model
         'courseId','sy','section','tuitionFee','advisingStatus','registrationStatus'
     ];
 
+    public function vaccination()
+    {
+        return $this->hasOne('App\Models\Vaccination');
+    }
+
+    
+
+
+   
+
 }

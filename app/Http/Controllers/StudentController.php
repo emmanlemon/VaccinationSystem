@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Admin;
 use App\Models\Registration;
 use Session;
 
-class AdminController extends Controller
+use Illuminate\Http\Request;
+
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,19 +15,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = array();
         if(Session::has('loginId'))
         {
-            $id = Admin::where('id', '=' ,Session::get('loginId'))->first();
-            $data = Registration::all();
+            $id = Registration::where('id', '=' ,Session::get('loginId'))->first();
 
-            return view('Admin.show_data',[
+            return view('Student.Dashboard',[
                 'id' => $id,
-                'data' => $data
             ]);
         }
         else{
-            return redirect('/auth')->with('fail' ,'This is For Admin Section');
+            return redirect('/auth')->with('fail' ,'This is For Student Section');
         }
     }
 
@@ -39,7 +35,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('Student.VaccinationData');
     }
 
     /**
@@ -50,7 +46,18 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Vaccination = Vaccination::create([
+            'vaccinated' => $request->vaccinated,
+            'brand' => $request->brand,
+            'firstDose' => $request->firstDose,
+            'provider1' => $request->provider1,
+            'secondDose' => $request->secondDose,
+            'provider2' => $request->provider2,
+            'booster' => $request->booster,
+            'provider3' => $request->provider3,
+            'boosterDate' => $request->boosterDate,
+            'reason' => $request->reason,
+        ]);
     }
 
     /**
@@ -59,9 +66,13 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $id = Registration::where('id', '=' ,Session::get('loginId'))->first();
+
+        return view('Student.Profile',[
+            'id' => $id,
+        ]);
     }
 
     /**
@@ -95,8 +106,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $Registration = Registration::findOrFail($id);
-        $Registration->delete();
-        return redirect('/admin')->with('msg' , 'Student Data Deleted Successfully'); 
+        //
     }
+
+
+
 }

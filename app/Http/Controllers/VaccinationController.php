@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Admin;
+use App\Http\Requests\VaccinationRequests;
+use App\Models\Vaccination;
 use App\Models\Registration;
+
+use Illuminate\Http\Request;
 use Session;
 
-class AdminController extends Controller
+class VaccinationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,20 +18,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = array();
-        if(Session::has('loginId'))
-        {
-            $id = Admin::where('id', '=' ,Session::get('loginId'))->first();
-            $data = Registration::all();
-
-            return view('Admin.show_data',[
-                'id' => $id,
-                'data' => $data
-            ]);
-        }
-        else{
-            return redirect('/auth')->with('fail' ,'This is For Admin Section');
-        }
+        
     }
 
     /**
@@ -39,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('Student.VaccinationData');
     }
 
     /**
@@ -50,7 +39,26 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = Registration::where('id', '=' ,Session::get('loginId'))->first();
+ 
+     
+            $Vaccination = Vaccination::create([
+                'registration_id' => $id->id,
+                'vaccinated' => $request->vaccinated,
+                'brand' => $request->brand,
+                'firstDose' => $request->firstDose,
+                'provider1' => $request->provider1,
+                'secondDose' => $request->secondDose,
+                'provider2' => $request->provider2,
+                'booster' => $request->booster,
+                'provider3' => $request->provider3,
+                'boosterDate' => $request->boosterDate,
+                'reason' => $request->reason,
+            ]);
+
+            dd('hello');
+         
+          
     }
 
     /**
@@ -95,8 +103,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $Registration = Registration::findOrFail($id);
-        $Registration->delete();
-        return redirect('/admin')->with('msg' , 'Student Data Deleted Successfully'); 
+        //
     }
 }

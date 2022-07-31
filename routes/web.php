@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\VaccinationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth;
 
 /*
@@ -19,7 +21,16 @@ use App\Http\Controllers\Auth;
 Route::redirect('/', '/auth');
 
 Route::resource('/auth', Auth::class);
-Route::resource('/registration', RegistrationController::class)->middleware('isLoggedIn');;
+Route::resource('/registration', RegistrationController::class);
 Route::resource('/admin', AdminController::class)->middleware('isLoggedIn');
-
+Route::resource('/student', StudentController::class)->middleware('isLoggedIn');
+Route::resource('/profile/vaccination', VaccinationController::class)->middleware('isLoggedIn');
 Route::get('/logout', [Auth::class , 'logout'])->name('logout');
+
+
+Route::get('/admin/delete/{id}', [AdminController::class , 'destroy']);
+
+Route::get('/student/profile' , [StudentController::class , 'show'])->name('show');
+
+
+

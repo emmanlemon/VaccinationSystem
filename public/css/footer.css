@@ -1,0 +1,13 @@
+.footer-copyright{
+    width: 100%;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    border-top: 3px outset;
+    border-image: linear-gradient(to right, rgb(0, 38, 255), rgb(0, 115, 0)) 1;
+	border-top: 1px outset;
+	background-color: #eee;
+	font-size: 1.25em;
+	text-shadow: 1px 1px 1px white;
+	padding: 1%;
+}

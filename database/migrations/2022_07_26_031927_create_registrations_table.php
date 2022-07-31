@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('tuitionFee');
             $table->string('advisingStatus');
             $table->string('registrationStatus');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

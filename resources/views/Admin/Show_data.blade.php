@@ -9,6 +9,21 @@
     <title>Document</title>
 </head>
 <body>
+  <section class="header">
+    <nav>
+        <img src="{{ url("../images/bcclogo.png") }}" alt="" style="width: 5%; height:5%">
+        <p>Binalatongan Community College</p>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </div>
+        <a href="{{ route('logout') }}" style="color: white; text-decoration: none; text-transform: uppercase; font-size: 1.25em; margin: 1% 0;">Logout</a>
+    </nav>
+</section>
     <div class="information" style="display: grid; place-items:center;">
         <h1 style="display:inline-block;">Welcome Our Admin!!</h1>
         <p>{{ $id->username }}</p>
@@ -16,8 +31,7 @@
     </div>
     <div class="create_teacher">
         <div class="Teacher">
-            <a href="{{ url('admin/create') }}" style="font-size: 1.2em;">Add Student</a>
-            <a href="{{ route('logout') }}" style="color: rgb(0, 0, 0); text-decoration: none; text-transform: uppercase; font-size: 1.25em; margin: 1% 0;">Logout</a>
+            {{-- <a href="{{ url('admin/create') }}" style="font-size: 1.2em;">Add Student</a> --}}
         </div>
     </div>
     <div class="container_table">
@@ -29,13 +43,13 @@
             <p style="font-size: 2em; color: red; min-height: 15vh;">No Data Available</p>
             @else
             @if(Session::has('success'))
-            <div class="alert alert-success">{{ Session::get('success') }}</div>
+            <div class="success">{{ Session::get('success') }}</div>
             @endif
             @if(Session::has('update'))
-            <div class="alert alert-success">{{ Session::get('update') }}</div>
+            <div class="success">{{ Session::get('update') }}</div>
             @endif
             @if(Session::has('msg'))
-            <div class="alert alert-danger">{{ Session::get('msg') }}</div>
+            <div class="alert">{{ Session::get('msg') }}</div>
             @endif
             <th scope="col">#</th>
             <th scope="col">Student Number</th>
@@ -71,6 +85,7 @@
         </tbody>
       </table>
     </div>
-    
+    <div class="footer-copyright text-left py-3">© COPYRIGHT 2022. ALL RIGHTS RESERVED.
+    </div>
 </body>
 </html>

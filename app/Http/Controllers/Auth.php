@@ -40,7 +40,7 @@ class Auth extends Controller
             if($request->password ==  $Registration->studentNumber)
             {
                 $request->session()->put('loginId', $Registration->id);
-                return redirect('/registration');
+                return redirect('/student');
                 
             }
             else
